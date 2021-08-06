@@ -10,16 +10,17 @@ import java.io.ObjectOutputStream;
 public class TestaSerializacao {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-
-		String nome = "Leo";
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("objeto.bin"));
-		oos.writeObject(nome);
-		oos.close();
 		
-		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("objeto.bin"));
-		String nomeDnv = (String) ois.readObject();
+//		Cliente cliente = new Cliente("Izold", "555.555.555-55", "dev");
+//
+//		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("cliente.bin"));
+//		oos.writeObject(cliente);
+//		oos.close();
+//		
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("cliente.bin"));
+		Cliente cliente = (Cliente) ois.readObject();
 		ois.close();
-		System.out.println(nomeDnv);
+		System.out.println(cliente.getCpf());
 		
 	}
 
